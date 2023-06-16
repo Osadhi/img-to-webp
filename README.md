@@ -5,7 +5,7 @@ pip install -r requirements.txt
 ```
 
 # Run
-Place all of the images in the images directory.
+Place all of the images in the `images` directory.
 
 Run the following command in terminal or cmd, or double-click `main.py`
 ```bash
