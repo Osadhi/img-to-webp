@@ -11,4 +11,4 @@ Run the following command in terminal or cmd, or double-click `main.py`
 ```bash
 python main.py
 ```
-`webpes` directory contains all of the converted `.webp` files
+`webps` directory contains all of the converted `.webp` files
