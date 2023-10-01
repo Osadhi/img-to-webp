@@ -13,6 +13,9 @@ These instructions will get you up and running with the application on your loca
 ### Installation
 
 - Clone the repo
+```bash
+git clone https://github.com/Osadhi/img-to-webp.git
+```
 - Navigate into cloned directory
 ```bash
 cd <repository>
