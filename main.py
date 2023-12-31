@@ -10,6 +10,21 @@ init(autoreset=True)
 
 
 def webp_converter(file: str, output_dir: str, remove_file: bool = False) -> None:
+    """
+    Converts the input image file to the WebP format and saves it to the specified output directory.
+
+    Parameters:
+    - file (str): Path to the input image file.
+    - output_dir (str): Directory where the converted WebP file will be saved.
+    - remove_file (bool, optional): If True, the input file will be removed after conversion. Default is False.
+
+    Raises:
+    - ValueError: If the specified file does not exist or is not a file.
+
+    Returns:
+    None
+    """
+
     if not Path(file).is_file():
         raise ValueError("Expected a file but received a directory instead")
 
@@ -22,6 +37,18 @@ def webp_converter(file: str, output_dir: str, remove_file: bool = False) -> Non
 
 
 def convert_file(file: str, output_dir: str, remove_file: bool) -> None:
+    """
+    Converts a single file to the WebP format and prints the conversion status.
+
+    Parameters:
+    - file (str): Path to the input image file.
+    - output_dir (str): Directory where the converted WebP file will be saved.
+    - remove_file (bool, optional): If True, the input file will be removed after conversion. Default is False.
+
+    Returns:
+    None
+    """
+
     try:
         print(f'\n{Fore.GREEN}[+] Converting {file} ... ')
         webp_converter(f'{file}', output_dir, remove_file)
@@ -31,6 +58,18 @@ def convert_file(file: str, output_dir: str, remove_file: bool) -> None:
 
 
 def convert_dir(directory: str, output_dir: str, remove_file: bool) -> None:
+    """
+    Converts all files in the specified directory to the WebP format.
+
+    Parameters:
+    - directory (str): Path to the input directory containing image files.
+    - output_dir (str): Directory where the converted WebP files will be saved.
+    - remove_file (bool, optional): If True, the input files will be removed after conversion. Default is False.
+
+    Returns:
+    None
+    """
+
     for file in listdir(directory):
         file_path = str(Path(f'{directory}/{file}').absolute())
         if Path(file_path).is_file():
