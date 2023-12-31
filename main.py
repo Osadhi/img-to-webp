@@ -14,7 +14,8 @@ def webp_converter(file: str, output_dir: str, remove_file: bool = False) -> Non
         raise ValueError("Expected a file but received a directory instead")
 
     with Image.open(file) as _img:
-        _img.convert('RGB').save(f'{output_dir}/{Path(file).stem}.webp', 'webp')
+        _img.convert('RGB').save(
+            f'{output_dir}/{Path(file).stem}.webp', 'webp')
 
     if remove_file:
         remove(file)
@@ -40,8 +41,10 @@ if __name__ == '__main__':
     parser = ArgumentParser(description='Convert Images to webp.')
     parser.add_argument('-f', '--file', help='Convert file', type=str)
     parser.add_argument('-d', '--dir', help='Convert files in dir', type=str)
-    parser.add_argument('-o', '--output-dir', help='Output directory', type=str)
-    parser.add_argument('-r', '--remove', action='store_true', default=False, help='Remove original image')
+    parser.add_argument('-o', '--output-dir',
+                        help='Output directory', type=str)
+    parser.add_argument('-r', '--remove', action='store_true',
+                        default=False, help='Remove original image')
 
     args = parser.parse_args()
 
@@ -51,14 +54,17 @@ if __name__ == '__main__':
         sys.exit()
 
     if not args.output_dir:
-        args.output_dir = str(Path(args.file).absolute().parent) if args.file else str(Path(args.dir).absolute())
+        args.output_dir = str(Path(args.file).absolute().parent) if args.file else str(
+            Path(args.dir).absolute())
         print(f'{Fore.GREEN}[+] Using output directory as {args.output_dir}')
 
     print(f'{Fore.GREEN}[+] Starting...')
 
     if args.file:
-        convert_file(file=args.file, output_dir=args.output_dir, remove_file=args.remove)
+        convert_file(file=args.file, output_dir=args.output_dir,
+                     remove_file=args.remove)
     else:
-        convert_dir(directory=args.dir, output_dir=args.output_dir, remove_file=args.remove)
+        convert_dir(directory=args.dir, output_dir=args.output_dir,
+                    remove_file=args.remove)
 
     print(f'\n{Fore.GREEN}[+] Done')
