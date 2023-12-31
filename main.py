@@ -4,6 +4,7 @@ from pathlib import Path
 
 from PIL import Image
 from colorama import Fore, init
+import sys
 
 init(autoreset=True)
 
@@ -47,7 +48,7 @@ if __name__ == '__main__':
     if args.file and args.dir or not args.file and not args.dir:
         print(f'{Fore.RED}[-] Use --file or --dir do not use both\n')
         parser.print_help()
-        exit()
+        sys.exit()
 
     if not args.output_dir:
         args.output_dir = str(Path(args.file).absolute().parent) if args.file else str(Path(args.dir).absolute())
