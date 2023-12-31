@@ -24,7 +24,6 @@ def webp_converter(file: str, output_dir: str, remove_file: bool = False) -> Non
     Returns:
     None
     """
-
     if not Path(file).is_file():
         raise ValueError("Expected a file but received a directory instead")
 
@@ -48,7 +47,6 @@ def convert_file(file: str, output_dir: str, remove_file: bool) -> None:
     Returns:
     None
     """
-
     try:
         print(f'\n{Fore.GREEN}[+] Converting {file} ... ')
         webp_converter(f'{file}', output_dir, remove_file)
@@ -69,7 +67,6 @@ def convert_dir(directory: str, output_dir: str, remove_file: bool) -> None:
     Returns:
     None
     """
-
     for file in listdir(directory):
         file_path = str(Path(f'{directory}/{file}').absolute())
         if Path(file_path).is_file():
